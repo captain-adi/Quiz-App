@@ -22,7 +22,9 @@ function Quiz() {
         <ul className="space-y-3 mb-5">
           {question.options.map((option, idx) => (
             <li
-              onClick={() => setSelectedOption(option)}
+              onClick={() => {setSelectedOption(option)
+                console.log(selectedOption)
+              }}
               key={idx}
               className={`py-2 px-4 rounded cursor-pointer text-white bg-gray-600 ${
                 selectedOption === option
@@ -41,7 +43,7 @@ function Quiz() {
         <div className="flex items-center justify-center flex-col">
 
         <button
-          className="mb-5 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded font-semibold"
+          className={`mb-5 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded font-semibold ${selectedOption == null ?  "cursor-not-allowed" : " cursor-pointer" }`}
         disabled={selectedOption == null}
           onClick={() => {
             {
